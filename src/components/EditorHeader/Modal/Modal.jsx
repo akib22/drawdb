@@ -1,45 +1,45 @@
 import {
-  Spin,
-  Input,
   Image,
-  Toast,
+  Input,
   Modal as SemiUIModal,
+  Spin,
+  Toast,
 } from "@douyinfe/semi-ui";
-import { DB, MODAL, STATUS, State } from "../../../data/constants";
-import { useState } from "react";
-import { db } from "../../../data/db";
-import {
-  useAreas,
-  useEnums,
-  useNotes,
-  useDiagram,
-  useTransform,
-  useTypes,
-  useUndoRedo,
-  useTasks,
-  useSaveState,
-} from "../../../hooks";
 import { saveAs } from "file-saver";
 import { Parser } from "node-sql-parser";
 import { Parser as OracleParser } from "oracle-sql-parser";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { DB, MODAL, STATUS, State } from "../../../data/constants";
+import { databases } from "../../../data/databases";
+import { db } from "../../../data/db";
+import {
+  useAreas,
+  useDiagram,
+  useEnums,
+  useNotes,
+  useSaveState,
+  useTasks,
+  useTransform,
+  useTypes,
+  useUndoRedo,
+} from "../../../hooks";
+import { isRtl } from "../../../i18n/utils/rtl";
+import { importSQL } from "../../../utils/importSQL";
 import {
   getModalTitle,
   getModalWidth,
   getOkText,
 } from "../../../utils/modalData";
-import Rename from "./Rename";
-import Open from "./Open";
-import New from "./New";
+import CodeEditor from "../../CodeEditor";
 import ImportDiagram from "./ImportDiagram";
 import ImportSource from "./ImportSource";
-import SetTableWidth from "./SetTableWidth";
 import Language from "./Language";
+import New from "./New";
+import Open from "./Open";
+import Rename from "./Rename";
+import SetTableWidth from "./SetTableWidth";
 import Share from "./Share";
-import CodeEditor from "../../CodeEditor";
-import { useTranslation } from "react-i18next";
-import { importSQL } from "../../../utils/importSQL";
-import { databases } from "../../../data/databases";
-import { isRtl } from "../../../i18n/utils/rtl";
 
 const extensionToLanguage = {
   md: "markdown",
